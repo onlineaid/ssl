@@ -56,12 +56,13 @@ app.use("/ssl-request", async (req, res, next) => {
     sslcommer.init(data).then(data => {
         //process the response that got from sslcommerz 
         //https://developer.sslcommerz.com/doc/v4/#returned-parameters
+        console.log('data', data);
         if(data?.GatewayPageURL){
             return res.status(200).redirect(data?.GatewayPageURL);
         }
         else {
             return res.status(400).json({
-                message : 'ssl comerce is note found',
+                message : 'ssl commerz is note found',
             });
         };
     });
